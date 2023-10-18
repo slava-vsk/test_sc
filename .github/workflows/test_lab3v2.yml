@@ -1,0 +1,38 @@
+name: Deploy my Calc
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: For set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Instull Pip
+        run: pip install --upgrade pip
+      - name: Install pytest
+        run: pip install pytest
+      - name: Install lint with Ruff
+        run: pip install ruff
+      - name: Test application
+        run: pytest -s CC_calc_lab3V2.py
+          # echo "need test app"
+  lint:
+     runs-on: ubuntu-latest
+     steps:
+        - name: Get repository code
+          uses: actions/checkout@v3
+        - name: For set up Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.x'
+        - name: Instull Pip
+          run: pip install --upgrade pip
+        - name: Install pytest
+          run: pip install pytest
+        - name: Install lint with Ruff
+          run: pip install ruff
+        - name: Lint check of code
+          uses: chartboost/ruff-action@v1
