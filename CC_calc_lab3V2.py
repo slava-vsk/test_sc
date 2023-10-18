@@ -42,10 +42,5 @@ def dil_arg (a, b):
 print(dod_arg(5,6))
 print(dod_arg("",6))
 print(dod_arg(5,""))
-
-print(dil_arg(5,""))
-print(dil_arg(5,2))
 print(dil_arg(5,0))
-
-
 assert vid_arg(2,5) == -7,"Увага! Помилка."
