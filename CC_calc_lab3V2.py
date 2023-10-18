@@ -3,9 +3,11 @@ def dod_arg (a, b):
     try:
         assert a == "","некоректні аргументи"
     except AssertionError as e:
+        print(str(e))
         try:
             assert b == "","некоректні аргументи"
         except AssertionError as e:
+            print(str(e))
             return a + b
 
 def vid_arg (a, b): 
@@ -34,28 +36,16 @@ def dil_arg (a, b):
             assert b == "","некоректні аргументи"
         except AssertionError as e:
             assert b == 0, "Ділення на нуль !!!"
-            return a / b
+            return a / b if b !=0 else "Ділення на нуль !!!"
 
 # test our function
-      
-dod_arg(5,6)   
-dod_arg("",6)   
-dod_arg(5,"")   
+print(dod_arg(5,6))
+print(dod_arg("",6))
+print(dod_arg(5,""))
 
-vid_arg(2,5)
-vid_arg(10,5)
-vid_arg("",5)
-vid_arg(2,"")
+print(dil_arg(5,""))
+print(dil_arg(5,2))
+print(dil_arg(5,0))
 
-mnz_arg(7,4)
-mnz_arg(7,0)
-mnz_arg("",4)
-mnz_arg(7,"")
 
-dil_arg(3,7)
-dil_arg(7,3)
-dil_arg(3,0)
-dil_arg(0,7)
-dil_arg(3,"")
-dil_arg("",7)
-
+assert vid_arg(2,5) == -7,"Увага! Помилка."
